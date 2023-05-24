@@ -44,12 +44,12 @@ function App() {
 					userDispatch({ type: 'USER_EXIST', payload: response.data.user });
 					title = `Welcome back ${response.data.user.username}`;
 					description = 'User has returned to session.';
+					handleSuccess(title, description);
 				} else {
 					// title = 'Expired session';
 					// description = 'User session has expired.';
 					navigate('/login');
 				}
-				handleSuccess(title, description);
 			})
 			.catch((error) => {
 				handleError(error);

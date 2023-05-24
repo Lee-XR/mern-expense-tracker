@@ -11,8 +11,8 @@
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 
 	color-scheme: only light;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+	/* color: rgba(255, 255, 255, 0.87);
+	background-color: #242424; */
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -119,12 +119,12 @@ nav ul li a.active {
 	}
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
 	:root {
 		color: #213547;
 		background-color: #ffffff;
 	}
-}
+} */
 
 .slideRight-enter {
 	opacity: 0;
