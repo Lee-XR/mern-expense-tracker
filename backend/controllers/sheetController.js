@@ -8,6 +8,7 @@ const {
 // Display all sheets for user
 const sheetsDisplayAll = async (req, res) => {
 	const { _id } = req.body;
+	return res.status(400).json({session: req.session});
 	try {
 		checkUserSession(req.session, _id);
 	} catch (err) {
@@ -30,14 +31,7 @@ const sheetsDisplayAll = async (req, res) => {
 const sheetDisplay = async (req, res) => {
 	const { _id, user_id } = req.body;
 
-	return res.status(400).json({session: req.session});
-
 	try {
-		// req.session.reload(function (err) {
-		// 	if (err) {
-		// 		throwCustomError(500, 'Something went wrong! Please try again.');
-		// 	}
-		// });
 		checkUserSession(req.session, user_id);
 	} catch (err) {
 		return res.status(err.status).json(err.message);
