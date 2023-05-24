@@ -70,9 +70,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 	</React.StrictMode>
 );
 
-axios.defaults.baseURL =
-	import.meta.env.MODE === 'production'
-		? import.meta.env.VITE_BACKEND_URL
-		: '/api';
+axios.defaults.baseURL = '/api';
 axios.defaults.withCredentials = true;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
