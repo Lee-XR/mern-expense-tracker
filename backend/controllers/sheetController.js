@@ -12,7 +12,7 @@ const sheetsDisplayAll = async (req, res) => {
 		if (err) {
 			throwCustomError(500, 'Something went wrong! Please try again.');
 		}
-	})
+	});
 	return res.status(400).json({session: req.session});
 	try {
 		checkUserSession(req.session, _id);
