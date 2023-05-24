@@ -1,0 +1,107 @@
+.container {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.container .wrapper-end-fade {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 4px;
+	margin: auto;
+	width: 120px;
+	height: calc(300px * 2.5 / 4);
+	background: rgba(245, 245, 245, 1);
+	z-index: 2;
+	pointer-events: none;
+}
+
+.wrapper {
+	position: relative;
+	margin: 0;
+	padding: 8px 8px 12px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 16px;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	scroll-snap-type: x proximity;
+	scroll-snap-align: center;
+	z-index: 1;
+}
+
+.wrapper::-webkit-scrollbar {
+	height: 5px;
+}
+
+.wrapper::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0);
+	border-radius: 8px;
+	transition: all 250ms ease-out;
+}
+
+.wrapper:hover::-webkit-scrollbar-thumb {
+	background: var(--secondary);
+}
+
+.wrapper:hover::-webkit-scrollbar-track {
+	background: rgb(220, 220, 220);
+}
+
+.empty-data {
+	margin: 0;
+	width: 100%;
+	text-align: center;
+	font-size: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+button[data-carousel-btns] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 60px;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.3;
+    visibility: none;
+    background-color: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    outline: none;
+    z-index: 3;
+    transition: all 250ms;
+}
+
+button[data-carousel-btns] span {
+    font-size: 40px;
+    transition: all 150ms;
+}
+
+button[data-carousel-btns]:hover,
+button[data-carousel-btns]:focus-within {
+    opacity: 1;
+    color: white;
+    background-color: var(--primary);
+}
+
+button[data-carousel-btns]:hover span {
+    font-size: 52px;
+}
+
+button[data-carousel-btns="left"] { 
+    left: 0;
+}
+
+button[data-carousel-btns="right"] { 
+    right: 0; 
+}

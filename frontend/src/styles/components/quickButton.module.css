@@ -1,0 +1,66 @@
+.container {
+	--item-no: 0;
+
+	position: absolute;
+	top: calc(88px + var(--item-no) * 68px);
+	width: 52px;
+	aspect-ratio: 1/1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	background-color: var(--primary);
+	border-radius: 50%;
+	border: 2px solid var(--primary);
+	outline: none;
+	z-index: calc(var(--item-no) * -1);
+	transition: color 250ms, background-color 250ms, box-shadow 250ms,
+		top 350ms ease-out calc(var(--item-no) * 30ms), visibility 350ms calc(var(--item-no) * 30ms);
+}
+
+.container:hover,
+.container:focus-visible {
+	color: var(--primary);
+	background-color: white;
+	box-shadow: 1px 2px 8px rgba(100, 100, 100, 0.9);
+}
+
+.container span {
+	font-size: 32px;
+	transition: transform 350ms;
+}
+
+.container:hover span {
+	transform: translateY(-2px);
+}
+
+.container .tooltip {
+	position: absolute;
+	width: fit-content;
+	margin: 0;
+	padding: 8px;
+	padding-right: 20px;
+	color: var(--primary);
+	font-weight: 600;
+	text-align: left;
+	white-space: nowrap;
+	background: linear-gradient(
+		to right,
+		rgba(235, 235, 235, 0.8) 0%,
+		rgba(235, 235, 235, 0.8) 80%,
+		transparent 100%
+	);
+	border-radius: 4px;
+	opacity: 0;
+	transform: translateX(-50%);
+	z-index: -100;
+	pointer-events: none;
+	transition: all 250ms;
+}
+
+.container:hover .tooltip,
+.container:focus-visible .tooltip {
+	box-shadow: -2px 2px 5px rgba(100, 100, 100, 0.3);
+	opacity: 1;
+	transform: translateX(-70%);
+}

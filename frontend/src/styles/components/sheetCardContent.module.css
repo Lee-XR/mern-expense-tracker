@@ -1,0 +1,129 @@
+.container {
+	position: relative;
+	margin: 0;
+	padding: 4px 8px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	overflow: hidden;
+	transition: all 250ms;
+}
+
+.container:hover .content,
+.container:focus-within .content,
+.container:hover .timestamp,
+.container:focus-within .timestamp {
+	opacity: 100%;
+	transform: translateY(0);
+}
+
+.title,
+.container input[type='text'],
+.container input[type='text']:focus {
+	position: relative;
+	width: 80%;
+	margin: 0;
+	padding: 4px 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	font-size: clamp(1rem, 1.8vw, 1.6rem);
+	font-weight: 600;
+	text-decoration: none;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	transition: all 250ms;
+}
+
+.title span:first-child { 
+    text-overflow: ellipsis;
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+.title span:nth-child(2) {
+    margin-left: 12px;
+	opacity: 0;
+	transform: translateX(-8px);
+	transition: all 250ms ease-out;
+}
+
+.container:hover .title span:nth-child(2),
+.container:focus-within .title span:nth-child(2) {
+	transform: translateX(0);
+	opacity: 1;
+}
+
+.title::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-bottom: 2px solid var(--primary);
+	width: 0;
+	transition: all 250ms;
+}
+
+.container:hover .title,
+.title:focus {
+	transform: translateX(8px);
+	color: var(--primary);
+}
+
+.container:hover .title::after,
+.title:focus::after {
+	transform: translateX(-8px);
+	width: 100%;
+}
+
+.container input[type='text'],
+.container input[type='text']:focus {
+	border-bottom: 1.5px solid rgba(180, 180, 180, 1);
+	outline: none;
+}
+
+.container ::placeholder {
+	color: rgba(200, 200, 200, 0.5);
+}
+
+.container a,
+.container a:active {
+	color: black;
+}
+
+.content {
+	width: 100%;
+	height: fit-content;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	font-size: clamp(0.8rem, 1.4vw, 1.2rem);
+	line-height: 1.8;
+	opacity: 0;
+	transform: translateY(20%);
+	transition: all 250ms ease-out;
+}
+
+.content div span:first-of-type {
+	font-weight: 500;
+}
+
+.timestamp {
+	width: 100%;
+	height: fit-content;
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	font-size: clamp(0.7rem, 1.2vw, 1.1rem);
+	opacity: 0;
+	transform: translateY(50%);
+	transition: all 350ms ease-out;
+}

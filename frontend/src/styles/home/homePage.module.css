@@ -1,0 +1,17 @@
+.container {
+	position: relative;
+	margin: 0;
+	width: 100%;
+}
+
+.container section {
+	margin: 0 12px;
+	margin-bottom: 48px;
+}
+
+.container h2 {
+	margin: 12px 0 4px;
+	font-size: clamp(1rem, 2vw, 1.8rem);
+	font-weight: 600;
+	line-height: 1.5em;
+}

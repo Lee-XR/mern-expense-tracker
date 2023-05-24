@@ -1,0 +1,44 @@
+.settings-btn {
+	position: absolute;
+	margin: auto;
+	width: 36px;
+	aspect-ratio: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+	border-radius: 50%;
+	outline: none;
+	isolation: isolate;
+	transition: all 250ms;
+}
+
+.settings-btn:hover,
+.settings-btn:focus-visible,
+.settings-btn:disabled {
+	color: var(--secondary);
+}
+
+.settings-btn span {
+	font-size: 28px;
+}
+
+.settings-btn::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 0;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background-color: rgba(220, 220, 220, 0.5);
+	z-index: -1;
+	transition: all 250ms;
+}
+
+.settings-btn:hover::before,
+.settings-btn:focus-visible::before,
+.settings-btn:disabled::before {
+	width: 36px;
+}

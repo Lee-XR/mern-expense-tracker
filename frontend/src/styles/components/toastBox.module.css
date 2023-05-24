@@ -1,0 +1,134 @@
+button {
+	all: unset;
+}
+
+.toast-viewport {
+	position: fixed;
+	bottom: 16px;
+	right: 16px;
+	margin: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 8px;
+	z-index: 99999;
+}
+
+.toast-root {
+    --status-color: var(--primary);
+
+	margin: 0;
+	padding: 0;
+	width: 300px;
+	aspect-ratio: 4;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 8px;
+	border: 1px solid rgba(50, 50, 50, 0.3);
+	background: rgb(250, 250, 250);
+	list-style: none;
+	box-shadow: 2px 5px 10px rgba(100, 100, 100, 0.4),
+		-1px -2px 5px rgba(100, 100, 100, 0.1);
+}
+
+.toast-root[data-state='open'] {
+	animation: slideIn 300ms;
+}
+
+.toast-root[data-state='closed'] {
+	animation: slideOut 250ms;
+}
+
+.toast-root[data-swipe='move'] {
+	transform: translateX(var(--radix-toast-swipe-move-x));
+}
+
+.toast-root[data-swipe='cancel'] {
+	transform: translateX(0);
+	transition: transform 250ms;
+}
+
+.toast-root[data-swipe='end'] {
+	animation: swipeOut 250ms;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideOut {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+}
+
+@keyframes swipeOut {
+	from {
+		opacity: 1;
+		transform: translateX(var(--radix-toast-swipe-end-x));
+	}
+	to {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+}
+
+.toast-root .toast-text {
+	position: relative;
+	margin: 0;
+	padding: 8px;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-rows: auto minmax(0, 1fr);
+}
+
+.toast-root .toast-tip {
+	margin: 0;
+	width: 6px;
+	height: 100%;
+	border-radius: 8px 0 0 8px;
+	background: var(--status-color);
+}
+
+.toast-root .toast-text .toast-title {
+	color: var(--status-color);
+	font-weight: 500;
+	font-size: clamp(0.8em, 1.3vw, 1.2em);
+	text-transform: capitalize;
+}
+
+.toast-root .toast-text .toast-description {
+	margin-top: 2px;
+	font-size: clamp(0.7em, 1.1vw, 1.1em);
+}
+
+.toast-root .toast-close {
+	margin: 0;
+	padding: 0 4px;
+	width: fit-content;
+	height: 100%;
+	color: rgba(50, 50, 50, 0.3);
+	border-left: 1px solid rgba(50, 50, 50, 0.3);
+	border-radius: 0 8px 8px 0;
+	background: rgb(250, 250, 250);
+}
+
+.toast-root .toast-close:hover {
+	color: rgb(100, 100, 100);
+	background: rgb(240, 240, 240);
+	transition: all 250ms;
+}

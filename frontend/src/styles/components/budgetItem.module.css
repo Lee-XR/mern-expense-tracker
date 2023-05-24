@@ -1,0 +1,61 @@
+.budget-item {
+	position: relative;
+	margin: 0;
+	padding: 8px 12px;
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-size: clamp(0.5rem, 1.3vw, 1.2rem);
+	border: 1px solid rgba(50, 50, 50, 0.3);
+	border-radius: 15px;
+	background: rgb(250, 250, 250);
+}
+
+.budget-item .budget-name {
+	margin-bottom: 4px;
+	font-weight: 700;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: nowrap;
+}
+
+.budget-item .budget-currency,
+.budget-item .budget-divider {
+	font-weight: 600;
+}
+
+.budget-item .budget-bar {
+	--progress-width: 0%;
+
+	position: relative;
+	margin-top: 4px;
+	width: min(200px, 60%);
+	height: 21px;
+	background: linear-gradient(
+		to left,
+		var(--secondary) calc(100% - var(--progress-width)),
+		var(--primary) 100%
+	);
+	border: 1px solid var(--primary);
+}
+
+.budget-item .budget-bar::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto 0;
+	width: calc(100% - var(--progress-width));
+	height: 19px;
+	background-color: rgb(235, 235, 235);
+}
+
+.budget-item .budget-time-left {
+	width: 100%;
+	margin-top: 8px;
+	text-align: right;
+}

@@ -1,0 +1,52 @@
+.container {
+    position: absolute;
+    width: 150px;
+    height: fit-content;
+    margin: 0;
+    padding: 4px 0;
+    border-radius: 4px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 3px 3px 6px rgba(100, 100, 100, 0.3), -1px -1px 3px rgba(100, 100, 100, 0.2);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.container ul li {
+    margin: 2px auto;
+    width: 100%;
+}
+
+.container ul li button {
+    margin: 0;
+    padding: 4px;
+    width: 100%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 28px auto;
+    align-items: center;
+    gap: 24px;
+    border: none;
+    outline: none;
+    background: transparent;
+    transition: all 100ms;
+}
+
+.container ul li button:hover,
+.container ul li button:focus-visible {
+    color: var(--primary);
+    background: rgb(225, 225, 225);
+}
+
+.container ul li button span {
+    font-size: clamp(0.7rem, 1.2vw, 1.1rem);
+    text-align: left;
+}
