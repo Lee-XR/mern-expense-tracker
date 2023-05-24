@@ -8,13 +8,6 @@ const {
 // Display all sheets for user
 const sheetsDisplayAll = async (req, res) => {
 	const { _id } = req.body;
-	
-	return res.status(400).json({session: req.session});
-	try {
-		checkUserSession(req.session, _id);
-	} catch (err) {
-		return res.status(err.status).json(err.message);
-	}
 
 	await Sheet.getAllSheets(_id)
 		.then((sheets) => {
