@@ -35,7 +35,7 @@ const LoginPage = () => {
 			.then((response) => {
 				if (response.data.success) {
 					userDispatch({ type: 'USER_EXIST', payload: response.data.user });
-					navigate('/');
+					navigate('/home');
 
 					const title = `Welcome ${response.data.user.username}`;
 					const description = 'User has successfully registered.';
@@ -57,7 +57,7 @@ const LoginPage = () => {
 			.then((response) => {
 				if (response.data.success) {
 					userDispatch({ type: 'USER_EXIST', payload: response.data.user });
-					navigate('/');
+					navigate('/home');
 					
 					const title = `Welcome ${response.data.user.username}`;
 					const description = 'User has successfully logged in.';

@@ -45,8 +45,8 @@ function App() {
 					title = `Welcome back ${response.data.user.username}`;
 					description = 'User has returned to session.';
 				} else {
-					title = 'Expired session';
-					description = 'User session has expired.';
+					// title = 'Expired session';
+					// description = 'User session has expired.';
 					navigate('/login');
 				}
 				handleSuccess(title, description);
