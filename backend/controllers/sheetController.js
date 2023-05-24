@@ -31,6 +31,11 @@ const sheetDisplay = async (req, res) => {
 	const { _id, user_id } = req.body;
 
 	try {
+		req.session.reload(function (err) {
+			if (err) {
+				throwCustomError(500, 'Something went wrong! Please try again.');
+			}
+		});
 		checkUserSession(req.session, user_id);
 	} catch (err) {
 		return res.status(err.status).json(err.message);
