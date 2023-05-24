@@ -29,8 +29,12 @@ const userLogin = async (req, res) => {
 			req.session.isAuth = true;
 			req.session.token = createToken(userContext._id);
 			req.session.user = userContext;
-			req.session.save();
-			res.status(200).json({ success: true, user: { ...userContext } });
+			req.session.save(function(err) {
+				if (err) {
+					throwCustomError(500, 'Something went wrong! Please try again.');
+				}
+				res.status(200).json({ success: true, user: { ...userContext } });
+			});
 		})
 		.catch((err) => {
 			const status = err.status || 400;
