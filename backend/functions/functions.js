@@ -33,8 +33,10 @@ const checkUserSession = (userSession, user_id) => {
 		throwCustomError(401, 'Session user is missing.');
 	}
 
-	if (userSession.isAuth === false || !userSession.token) {
-		throwCustomError(401, 'Session user is unauthenticated.');
+	throwCustomError(403, userSession);
+
+	if (!userSession.isAuth || !userSession.token) {
+		throwCustomError(401, '1 Session user is unauthenticated.');
 	}
 
 	const { _id } = verifyToken(userSession.token);
