@@ -8,11 +8,7 @@ const {
 // Display all sheets for user
 const sheetsDisplayAll = async (req, res) => {
 	const { _id } = req.body;
-	req.session.reload(function (err) {
-		if (err) {
-			throwCustomError(500, 'Something went wrong! Please try again.');
-		}
-	});
+	
 	return res.status(400).json({session: req.session});
 	try {
 		checkUserSession(req.session, _id);
