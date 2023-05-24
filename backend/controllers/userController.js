@@ -33,8 +33,8 @@ const userLogin = async (req, res) => {
 				if (err) {
 					throwCustomError(500, 'Something went wrong! Please try again.');
 				}
-				res.status(200).json({ success: true, user: { ...userContext } });
 			});
+			res.status(200).json({ success: true, user: { ...userContext } });
 		})
 		.catch((err) => {
 			const status = err.status || 400;
