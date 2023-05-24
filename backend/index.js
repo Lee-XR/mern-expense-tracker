@@ -66,8 +66,8 @@ mongoose
 	.catch((err) => console.log(err));
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static(path.resolve(process.cwd(), '../frontend', 'dist')));
+	app.use(express.static(path.join(process.cwd(), './frontend', 'dist')));
 	app.get('/*', (req, res) => {
-		res.sendFile(path.resolve(process.cwd(), '../frontend', 'dist', 'index.html'));
+		res.sendFile(path.join(process.cwd(), './frontend', 'dist', 'index.html'));
 	})
 }
